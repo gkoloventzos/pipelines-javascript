@@ -32,6 +32,7 @@ stages:
         testResultsFiles: '**/TEST-RESULTS.xml'
   - deployment: VMDeploy
     displayName: web
+    dependsOn: Install
     environment:
       name:  Azure_vm
       resourceType: VirtualMachine
