@@ -58,3 +58,16 @@ steps:
     artifactName: npm
   displayName: 'Publish npm artifact'
 
+jobs:
+- deployment: VMDeploy
+  displayName: web
+  pool:
+    vmImage: 'Ubuntu-latest'
+  environment:
+    name: Azure_vm
+    resourceType: VirtualMachine
+  strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo my first deployment
