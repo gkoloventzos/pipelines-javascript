@@ -23,6 +23,7 @@ stages:
     - script: |
         npm install
         npm run build
+        npm run test
       displayName: 'npm install'
 #  - job: Build
 #    displayName: Build
@@ -31,13 +32,13 @@ stages:
 #    - script: |
 #        npm run build
 #      displayName: 'npm build'
-  - job: Test
-    displayName: Test
-    dependsOn: Install
-    steps:
-    - script: |
-        npm run test
-      displayName: 'npm test'
+#  - job: Test
+#    displayName: Test
+#    dependsOn: Install
+#    steps:
+#    - script: |
+#        npm run test
+#      displayName: 'npm test'
     - task: PublishTestResults@2
       condition: succeededOrFailed()
       inputs:
