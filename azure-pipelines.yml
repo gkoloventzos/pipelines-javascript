@@ -33,7 +33,7 @@ stages:
 #      displayName: 'npm build'
   - job: Test
     displayName: Test
-    dependsOn: Build
+    dependsOn: Install
     steps:
     - script: |
         npm run test
