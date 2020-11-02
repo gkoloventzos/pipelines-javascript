@@ -60,7 +60,9 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    environment: $(environmentName)
+    environment: 
+      name: $environmentName
+      tags: 'web'
     pool: 
       vmImage: $(vmImageName)
     strategy:
@@ -70,7 +72,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: fenix-test'
             inputs:
-              azureSubscription: ''
+              azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
               runtimeStack: 'NODE|10.10'
