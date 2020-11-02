@@ -83,10 +83,9 @@ stages:
           - script: echo initialize, cleanup, backup, install certs
         deploy:
           steps:
-          - task: Bash@3
+          - task: IISWebAppDeployment@1
+            displayName: 'Deploy application to Website'
             inputs:
-              targetType: 'inline'
-              script: |
-                # Modify deployment script based on the app type
-                echo "Starting deployment script run"
-                sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
+              EnvironmentName: 'Azure_vm'
+              WebSiteName: 'Default Web Site'
+              WebDeployPackage: '$(Pipeline.Workspace)/drop/**/*.zip'
