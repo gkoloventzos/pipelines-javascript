@@ -63,6 +63,7 @@ stages:
     environment: 
       name: $environmentName
       resourceType: VirtualMachine
+      tags: web
     pool: 
       vmImage: $(vmImageName)
     strategy:
