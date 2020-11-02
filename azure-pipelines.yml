@@ -81,7 +81,6 @@ stages:
               script: |
                 # Modify deployment script based on the app type
                 echo "Starting deployment script run"
-                npm run start
 #          - task: AzureWebApp@1
 #            displayName: 'Azure Web App Deploy: fenix-test'
 ##            inputs:
