@@ -68,9 +68,9 @@ stages:
         deploy:
           steps:            
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: nodejs-cicd-16353'
+            displayName: 'Azure Web App Deploy: fenix-test'
             inputs:
-              azureSubscription: $(azureSubscription)
+              azureSubscription: ''
               appType: webAppLinux
               appName: $(webAppName)
               runtimeStack: 'NODE|10.10'
