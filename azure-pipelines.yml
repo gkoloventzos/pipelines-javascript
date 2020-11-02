@@ -9,7 +9,7 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '00001111-0000-1111-2222-000011112222'
+  azureSubscription: 'ad867791-2d49-406c-b847-3e531f547f9a'
   
   # Web app name
   webAppName: 'Fenix_test'
