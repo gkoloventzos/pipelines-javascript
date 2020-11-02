@@ -61,7 +61,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: 
-      name: $environmentName
+      name: $(environmentName)
       resourceType: VirtualMachine
       tags: web
     pool: 
