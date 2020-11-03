@@ -72,7 +72,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - script: echo initialize, cleanup, backup, install certs
+          - script: unzip $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         deploy:
           steps:
           #- task: Bash@3
