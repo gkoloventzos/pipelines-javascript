@@ -73,12 +73,12 @@ stages:
           - download: current
             artifact: drop
           - script: echo initialize, cleanup, backup, install certs
-        deploy:
-          steps:
+ #       deploy:
+ #         steps:
           #- task: Bash@3
           #  inputs:
             #  targetType: 'inline'
-             - script: echo "Starting deployment script run"
+#             - script: echo "Starting deployment script run"
 #          - task: AzureWebApp@1
 #            displayName: 'Azure Web App Deploy: fenix-test'
 ##            inputs:
