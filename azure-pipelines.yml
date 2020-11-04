@@ -75,7 +75,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - script: unzip $(path_to_zip)/$(Build.BuildId)
+          - script: unzip -o $(path_to_zip)/$(Build.BuildId)
         deploy:
           steps:
           #- task: Bash@3
