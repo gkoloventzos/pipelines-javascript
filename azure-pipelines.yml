@@ -75,7 +75,12 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - script: unzip -o $(path_to_zip)/$(Build.BuildId)
+          - script: |
+              npm install
+              npm run build --if-present
+              npm run test --if-present
+              npm uninstall -D mocha && npm i -D mocha
+              unzip -o $(path_to_zip)/$(Build.BuildId)
         deploy:
           steps:
           #- task: Bash@3
