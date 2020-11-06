@@ -71,23 +71,24 @@ stages:
       vmImage: $(vmImageName)
     strategy:
       runOnce:
-        deploy:
+        preDeploy:
           steps:
           - download: current
             artifact: drop
           - script: |
               npm install
-              npm run build --if-present
-              npm run test --if-present
               npm uninstall -D mocha && npm i -D mocha
+              npm run build --if-present
+              npm run test --if-present              
               unzip -o $(path_to_zip)/$(Build.BuildId)
-       # deploy:
-  #        steps:
+        deploy:
+          steps:
           #- task: Bash@3
           #  inputs:
             #  targetType: 'inline'
-     #        - script: |
-     #           echo "Starting deployment script run"
-#                unzip $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+             - script: |
+                  echo "Starting deployment script run"
+                  unzip -o $(path_to_zip)/$(Build.BuildId)
+#                 unzip $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
 #                npm start &
 
